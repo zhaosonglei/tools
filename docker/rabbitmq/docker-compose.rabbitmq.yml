@@ -1,0 +1,17 @@
+version: '3'
+services:
+  rabbitmq:
+    image: rabbitmq:management-alpine
+    container_name: sc-rabbitmq
+    restart: always
+    volumes:
+      - /data/docker/data/rabbitmq/mnesia
+    networks:
+      - sc-net
+    ports:
+      - 5672:5672
+      - 15672:15672
+
+networks:
+  sc-net:
+    external: false
